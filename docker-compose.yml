@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  plantingandweatherdashboardflask:
+    image: cropweathernewsrecipies_dashboard_sc
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5000:5000

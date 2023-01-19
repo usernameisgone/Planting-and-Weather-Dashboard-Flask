@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content1 %}
+<center><h1 style="color:white">News</h1></center>
+<style>
+    .column {
+        box-sizing: border-box;
+        padding: 5px;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 33.33% 33.33% 33.33%;
+        padding: 5px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        border-style: solid;
+        border: 1px solid silver;
+        text-align: center;
+        padding: 8px;
+    }
+
+    td {
+        border-style: solid;
+        border: 1px solid silver;
+        text-align: left;
+        padding: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    th {
+        background-color: #708090;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    tr {
+        color: white;
+    }
+
+    input[type=button], input[type=submit], input[type=reset] {
+        background-color: #1a1c24;
+        border: 3px solid silver;
+        font-size: 30px;
+        color: green;
+        text-decoration: none;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        border-radius: 6px;
+    }
+
+        input[type=submit]:hover {
+            background-color: #1a1c24;
+            color: crimson;
+            border: 2px solid crimson;
+            opacity: 0.8;
+        }
+</style>
+<table>
+    <thead>
+
+        <tr>
+            {% for col in column_news %}
+            <th>
+                {{col}}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in row_news %}
+        <tr>
+            {% for col, row in zip(column_news,row) %}
+                {% if loop.index == 3 %}
+                    <td><a href="{{row}}" target="_blank">{{row}}</a></td>
+                {% else %}
+                    <td>{{row}}</td>
+                {% endif %}    
+            {% endfor %}
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+{% endblock content1 %}
