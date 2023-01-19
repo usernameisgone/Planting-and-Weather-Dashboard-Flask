@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>Planting_and_Weather_Dashboard-Flask</Name>
     <RootNamespace>Planting and Weather Dashboard - Flash</RootNamespace>
+    <InterpreterId>MSBuild|flask2|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,17 @@
     <Content Include="Templates\home.html" />
     <Content Include="Templates\layout.html" />
     <Content Include="Templates\news.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="flask2\">
+      <Id>flask2</Id>
+      <Version>3.11</Version>
+      <Description>flask2 (Python 3.11 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
